@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Bookmark } from "lucide-react"
 import Image from "next/image"
@@ -15,22 +15,13 @@ import image8 from "../../public/image/gallery/image8.png";
 import image9 from "../../public/image/gallery/image9.png";
 
 
-
-interface HotelImage {
-  src: string
-  alt: string
-}
-
 interface HotelListingProps {
-  name: string
-  description: string
-  mainImage: HotelImage
-  galleryImages: HotelImage[]
-  onReserve?: () => void
-  onBookmark?: () => void
-  isBookmarked?: boolean
+  name?: string;
+  description?: string;
+  onReserve?: () => void;
+  onBookmark?: () => void;
+  isBookmarked?: boolean;
 }
-
 
 const images = [
   image1,
@@ -52,18 +43,21 @@ export default function ImageGallerySection({
   onBookmark,
   isBookmarked = false,
 }: HotelListingProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [bookmarked, setBookmarked] = useState(isBookmarked)
+  const [bookmarked, setBookmarked] = useState<boolean>(isBookmarked);
 
-  const handleBookmark = () => {
-    setBookmarked(!bookmarked)
-    onBookmark?.()
-  }
+  const handleBookmark = useCallback(() => {
+    setBookmarked((prev) => !prev);
+    onBookmark?.();
+  }, [onBookmark]);
 
-  const handleReserve = () => {
-    onReserve?.()
-    console.log("Reserve clicked for", name)
-  }
+  const handleReserve = useCallback(() => {
+    onReserve?.();
+    console.log("Reserve clicked for", name);
+  }, [onReserve, name])
+
+
+
+
 
   return (
     <div className="w-full  container ">
@@ -142,7 +136,7 @@ export default function ImageGallerySection({
           />
         ))}
       </div>
-      </div>
+    </div>
 
   )
 }
