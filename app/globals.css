@@ -126,3 +126,11 @@
   width: 1650px;
   margin: auto;
 }
+
+.button_color{
+  background: #007DD0;
+}
+
+.text_color{
+ color: #626262;
+}
