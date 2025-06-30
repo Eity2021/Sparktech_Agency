@@ -65,14 +65,6 @@ export default function ImageGallerySection({
     console.log("Reserve clicked for", name)
   }
 
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length)
-  }
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)
-  }
-
   return (
     <div className="w-full  container ">
       {/* Header Section */}
