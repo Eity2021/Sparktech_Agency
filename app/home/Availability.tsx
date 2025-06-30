@@ -1,12 +1,10 @@
 "use client"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Calendar } from "@/components/ui/calendar"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { CalendarIcon, Users } from "lucide-react"
 import { format } from "date-fns"
 import calender from "../../public/image/calender.png";
 import room from "../../public/image/room.png";
@@ -74,7 +72,9 @@ export default function Availability() {
                                             mode="single"
                                             selected={checkOut}
                                             onSelect={setCheckOut}
-                                            disabled={(date) => date < new Date() || (checkIn && date <= checkIn)}
+                                            disabled={(date) =>
+                                                date < new Date() || (checkIn ? date <= checkIn : false)
+                                            }
                                             initialFocus
                                         />
                                     </PopoverContent>
