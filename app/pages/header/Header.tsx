@@ -1,223 +1,141 @@
 "use client";
-
-import { useState } from "react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ChevronDown, Bell, ExternalLink, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "../../../public/image/logo.png";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Image from 'next/image';
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import logo from "../../../public/image/logo.png";
+import Image from "next/image";
+import Link from "next/link";
+import euro from "../../../public/image/euro-circle.png";
+import down from "../../../public/image/arrow-down.png";
+import flag from "../../../public/image/flag.png";
+import arrowUp from "../../../public/image/arrow-up.png";
+import message from "../../../public/image/message.png";
+import user from "../../../public/image/User_light.png";
+import MobileResponsive from "./MobileResponsive";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const navigationItems = [
-    { name: "Home", href: "/", active: false },
-    { name: "Hotels", href: "hotel", active: true },
-    { name: "House", href: "/house", active: false },
-    { name: "About Us", href: "/about", active: false },
-    { name: "Contact Us", href: "/contact", active: false },
+    { name: "Home", href: "/" },
+    { name: "Hotels", href: "hotel" },
+    { name: "House", href: "/house" },
+    { name: "About Us", href: "/about" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   return (
-    <header className="w-full bg-[#E9F6FF] border-b border-gray-200">
-      <div className="container sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className="w-full bg-[#E9F6FF] ">
+      <div className="lg:container mx-auto lg:px-0 px-4">
+        <div className="flex items-center justify-between h-[76px]">
           {/* Logo */}
           <div>
-           <Image  src={logo} alt="logo"/>
+            <Image src={logo} alt="logo" />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={`px-[18px] py-2 rounded-md text-[16px] font-normal  text-[#626262] font-dm ${
-                  item.active
-                    ? "text-purple-600 bg-purple-50"
-                    : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
-                }`}
-              >
-                {item.name}
-              </a>
-            ))}
+          <nav className="hidden md:flex items-center ">
+            {navigationItems.map((item) => {
+              const isActive = pathname === item.href;
+
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`md:px-[12px] px-[18px] py-2 rounded-md text-[16px]  font-dm bg-transparent transition-colors duration-200 ${
+                    isActive
+                      ? "text-[#007DD0] font-bold"
+                      : "text-[#626262] font-normal"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right Side Actions */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center ">
             {/* Currency Selector */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="hidden sm:flex items-center space-x-1"
-                >
-                  <span className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold">
-                    €
-                  </span>
-                  <ChevronDown className="w-4 h-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>EUR (€)</DropdownMenuItem>
-                <DropdownMenuItem>USD ($)</DropdownMenuItem>
-                <DropdownMenuItem>GBP (£)</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            {/* Language Selector */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="hidden sm:flex items-center space-x-1"
-                >
-                  <div className="w-5 h-5 rounded-full overflow-hidden">
-                    <div className="w-full h-full bg-gradient-to-r from-red-500 via-yellow-400 to-red-500"></div>
-                  </div>
-                  <ChevronDown className="w-4 h-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>Español</DropdownMenuItem>
-                <DropdownMenuItem>English</DropdownMenuItem>
-                <DropdownMenuItem>Français</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            {/* List Property Link */}
-            <a
-              href="#"
-              className="hidden lg:flex items-center space-x-1 text-blue-600 hover:text-blue-700 text-sm font-medium"
-            >
-              <span>List your property</span>
-              <ExternalLink className="w-4 h-4" />
-            </a>
-
-            {/* Notification Bell */}
-            <Button variant="ghost" size="sm" className="hidden sm:flex">
-              <Bell className="w-5 h-5" />
-            </Button>
-
-            {/* User Profile */}
-            <div className="hidden sm:flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-                <span className="text-sm font-medium text-gray-700">S</span>
-              </div>
-              <span className="text-sm font-medium text-gray-700">Sunan</span>
+            <div className="rounded-[46px] border border-[#A5D3F1] py-[3px] mr-1">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    className="hidden sm:flex items-center space-x-1 "
+                  >
+                    <span className="w-5 h-5  flex items-center justify-center">
+                      <Image src={euro} alt="euro" />
+                    </span>
+                    <Image src={down} alt="down" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>EUR (€)</DropdownMenuItem>
+                  <DropdownMenuItem>USD ($)</DropdownMenuItem>
+                  <DropdownMenuItem>GBP (£)</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
 
-            {/* Mobile Menu Button */}
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="md:hidden">
-                  <Menu className="w-5 h-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-80">
-                <div className="flex flex-col space-y-6 mt-6">
-                  {/* Mobile User Profile */}
-                  <div className="flex items-center space-x-3 pb-4 border-b">
-                    <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
-                      <span className="text-sm font-medium text-gray-700">
-                        S
-                      </span>
+            {/* Language Selector */}
+            <div className="rounded-[46px] border border-[#A5D3F1] py-[3px] mr-1">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="hidden sm:flex items-center space-x-1"
+                  >
+                    <div>
+                      <Image src={flag} alt="flag" />
                     </div>
-                    <span className="text-base font-medium text-gray-900">
-                      Sunan
-                    </span>
-                  </div>
+                    <Image src={down} alt="down" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>Español</DropdownMenuItem>
+                  <DropdownMenuItem>English</DropdownMenuItem>
+                  <DropdownMenuItem>Français</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
 
-                  {/* Mobile Navigation */}
-                  <nav className="flex flex-col space-y-2">
-                    {navigationItems.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={`px-3 py-3 rounded-md text-base font-medium transition-colors ${
-                          item.active
-                            ? "text-purple-600 bg-purple-50"
-                            : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
-                        }`}
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </nav>
+            {/* List Property Link */}
+            <div className="rounded-[46px] border border-[#A5D3F1] py-2 px-3 mr-1 hidden lg:flex">
+              <a
+                href="#"
+                className="flex items-center space-x-1 text-[#007DD0] hover:text-[#007DD0] text-[16px] font-normal font-dm"
+              >
+                <span>List your property</span>
+                <Image src={arrowUp} alt="arrowUp" />
+              </a>
+            </div>
+            {/* Notification Bell */}
+            <div className="hidden sm:flex cursor-pointer">
+              <Image src={message} alt="message" />
+            </div>
 
-                  {/* Mobile Actions */}
-                  <div className="flex flex-col space-y-4 pt-4 border-t">
-                    <a
-                      href="#"
-                      className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 text-base font-medium"
-                    >
-                      <span>List your property</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-gray-700">
-                        Currency
-                      </span>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="flex items-center space-x-1"
-                          >
-                            <span className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold">
-                              €
-                            </span>
-                            <ChevronDown className="w-4 h-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                          <DropdownMenuItem>EUR (€)</DropdownMenuItem>
-                          <DropdownMenuItem>USD ($)</DropdownMenuItem>
-                          <DropdownMenuItem>GBP (£)</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-gray-700">
-                        Language
-                      </span>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="flex items-center space-x-1"
-                          >
-                            <div className="w-5 h-5 rounded-full overflow-hidden">
-                              <div className="w-full h-full bg-gradient-to-r from-red-500 via-yellow-400 to-red-500"></div>
-                            </div>
-                            <ChevronDown className="w-4 h-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                          <DropdownMenuItem>Español</DropdownMenuItem>
-                          <DropdownMenuItem>English</DropdownMenuItem>
-                          <DropdownMenuItem>Français</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </div>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
+            {/* User Profile */}
+            <div className="hidden sm:flex items-center space-x-2 rounded-[46px] bg-white py-2 px-3 mr-2">
+              <Image src={user} alt="user" />
+              <span className="text-[16px] font-normal text-[#007DD0]">
+                Sunan
+              </span>
+            </div>
+            <MobileResponsive
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+            ></MobileResponsive>
           </div>
         </div>
       </div>
