@@ -42,9 +42,9 @@ export default function OverView({
   const tabs = ["Over View", "Features", "Reviews", "Guarantee"]
 
   return (
- <div className="w-full container p-4 sm:p-6">
-      <Card className="bg-white shadow-sm border overflow-hidden">
-        <div className="p-4 sm:p-6">
+ <div className="w-full container pt-4">
+
+        <div className="">
           {/* Navigation Tabs */}
           <div className="flex flex-wrap gap-2 sm:gap-6 mb-6 sm:mb-8 border-b border-gray-100 pb-4">
             {tabs.map((tab) => (
@@ -126,7 +126,7 @@ export default function OverView({
             </div>
           </div>
         </div>
-      </Card>
+   
     </div>
   )
 }

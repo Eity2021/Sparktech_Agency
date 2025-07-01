@@ -16,7 +16,7 @@ export default function Availability() {
     const [children, setChildren] = useState("0")
     const [rooms, setRooms] = useState("1")
     return (
-        <div className="w-full container p-4 sm:p-6">
+        <div className="w-full container">
             <h2 className="text-[20px]  font-bold text-[#000000] mb-4 sm:mb-6">Availability</h2>
             <div className="grid lg:grid-cols-3 grid-cols-1 w-full">
 
