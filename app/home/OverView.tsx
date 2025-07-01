@@ -46,13 +46,13 @@ export default function OverView({
 
         <div className="">
           {/* Navigation Tabs */}
-          <div className="flex flex-wrap gap-2 sm:gap-6 mb-6 sm:mb-8 border-b border-gray-100 pb-4">
+          <div className="flex flex-wrap gap-2 sm:gap-6 mb-6 sm:mb-8 pb-4">
             {tabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-3 py-2 text-sm sm:text-base font-medium transition-colors ${
-                  activeTab === tab ? "text-blue-600 border-b-2 border-blue-600" : "text-gray-600 hover:text-gray-900"
+                className={`px-3 py-2 text-[16px] font-dm  transition-colors ${
+                  activeTab === tab ? "text-[#007DD0] border-b-2 border-[#007DD0] font-medium " : "text-[#626262] font-normal "
                 }`}
               >
                 {tab}
@@ -67,12 +67,12 @@ export default function OverView({
               <div className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <h3 className="text-sm font-medium text-gray-700 mb-2">Property Type</h3>
-                    <p className="text-gray-900 font-medium">{propertyType}</p>
+          
+                    <p className="text-gray-900 font-medium font-urbanist">{propertyType}</p>
                   </div>
                   <div>
-                    <h3 className="text-sm font-medium text-gray-700 mb-2">Property Type</h3>
-                    <p className="text-gray-900 font-medium">{propertyType}</p>
+              
+                    <p className="text-gray-900 font-medium font-urbanist">{propertyType}</p>
                   </div>
                 </div>
 

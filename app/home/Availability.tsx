@@ -21,7 +21,7 @@ export default function Availability() {
             <div className="grid lg:grid-cols-3 grid-cols-1 w-full">
 
                 <div className="col-span-2">
-                    <div className="bg-white rounded-lg shadow-sm border p-4 sm:p-6">
+                    <div className="bg-white rounded-lg  border border-[#A3D0EE] p-4 sm:p-6">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-3">
                             {/* Check-in Date */}
                             <div className="space-y-2">
@@ -90,7 +90,7 @@ export default function Availability() {
                                     <PopoverTrigger asChild>
                                         <Button
                                             variant="outline"
-                                            className="w-full justify-start text-left font-normal h-12 px-4 bg-[#F6F6F6] rounded-[28px] border-none "
+                                            className="w-full justify-start text-left font-normal h-12 px-3 bg-[#F6F6F6] rounded-[28px] border-none "
                                             id="guests"
                                         >
                                             <Image src={room} alt="room" />

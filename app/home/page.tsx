@@ -7,22 +7,20 @@ import { ExploreArea } from './ExploreArea';
 import Property from './Property';
 import Policies from './Policies';
 import HotelSlider from './HotelSlider';
-
-
+import Table from './Table';
 
 export default function HomePage() {
   return (
     <div>
-
       <ImageGallerySection></ImageGallerySection>
         <OverView></OverView>
         <Availability></Availability>
+        <Table></Table>
         <Property></Property>
         <ExploreArea></ExploreArea>
         <Slider></Slider>
         <Policies></Policies>
         <HotelSlider></HotelSlider>
-
     </div>
   )
 }
