@@ -89,36 +89,44 @@ export function Slider() {
   const translateX = currentIndex * (screenWidth < 768 ? 100 : 50)
 
   return (
-    <div className="w-full container py-8 relative">
+    <div className="w-full md:container  mx-auto py-8 relative">
       {/* Header */}
-      <div className="flex items-center justify-between mb-28">
+      <div className=" mb-12">
         <h2 className="text-[20.8px] font-bold text-[#252525]">What Our Guests Say</h2>
-        <button className="text-[#007DD0] hover:text-[#007DD0] text-[20px] font-medium flex items-center gap-1 absolute right-24 top-[115px] border-b-2 border-[#007DD0]">
-          See All..
-          <MoveRight className="w-5 h-5" color="#007DD0" />
-        </button>
       </div>
 
       {/* Slider Container */}
-      <div className="">
-        {/* Navigation Arrows */}
-        <Button
+      <div >
+  <div className="flex justify-between mb-6">
+
+        <div>
+          <Button
           variant="outline"
           size="icon"
-          className="absolute left-24 top-[115px] w-[42px] h-[42px] -translate-y-1/2 z-10 bg-white shadow-lg hover:bg-gray-50 rounded-full border-none"
+          className=" w-[42px] h-[42px] -translate-y-1/2 z-10 bg-white shadow-lg hover:bg-gray-50 rounded-full border-none mr-2"
           onClick={goToPrevious}
         >
           <MoveLeft className="w-4 h-4" color="#D2D2D2" />
         </Button>
-
         <Button
           variant="outline"
           size="icon"
-          className="absolute left-36 top-[115px] w-[42px] h-[42px] -translate-y-1/2 z-10 bg-[#007DD01A] shadow-lg hover:bg-gray-50 rounded-full border-none"
+          className=" w-[42px] h-[42px] -translate-y-1/2 z-10 bg-[#007DD01A] shadow-lg hover:bg-gray-50 rounded-full border-none"
           onClick={goToNext}
         >
           <MoveRight className="w-5 h-5" color="#007DD0" />
         </Button>
+      </div>
+
+      <div>
+          <button className="text-[#007DD0] hover:text-[#007DD0] text-[20px] font-medium flex items-center gap-1  border-b-2 border-[#007DD0]">
+          See All..
+          <MoveRight className="w-5 h-5" color="#007DD0" />
+        </button>
+      </div>
+  </div>
+
+
 
         {/* Testimonials */}
         <div className="overflow-hidden rounded-lg">

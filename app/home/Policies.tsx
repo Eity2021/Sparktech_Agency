@@ -90,14 +90,14 @@ export default function Policies() {
   ]
 
   return (
-    <div className="container ">
-      <h1 className="text-2xl font-semibold text-gray-900 mb-6">Policies</h1>
+    <div className="md:container mx-auto ">
+      <h1 className="text-[20.8px] font-bold font-dm text-[#252525] mb-6">Policies</h1>
 
       <div className="border p-4 sm:p-6 ">
         {policies.map((policy, index) => (
           <div
             key={index}
-            className="grid grid-cols-1 md:grid-cols-3  border-b border-gray-100 last:border-b-0"
+            className="grid grid-cols-1 md:grid-cols-3  border-b-2 border-[#0000001A] last:border-b-0"
           >
             {/* Policy Title - Left Column */}
             <div className="md:col-span-1 flex items-center py-[14px]">

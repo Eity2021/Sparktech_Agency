@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Property() {
   return (
-    <div className='container py-8'>
+    <div className='md:container mx-auto py-8'>
         <h1 className="font-bold text-[20px] text-[#252525] font-dm">
             About this property
         </h1>

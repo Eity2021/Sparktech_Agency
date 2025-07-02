@@ -93,7 +93,7 @@ export function ExploreArea() {
 
 
   return (
-    <div className="w-full container px-4 py-8">
+    <div className="w-full md:container mx-auto px-4 py-8">
       {/* Header */}
       <div className="mb-8">
         <h2 className="text-[20px] font-bold text-[#252525">Explore the Area</h2>

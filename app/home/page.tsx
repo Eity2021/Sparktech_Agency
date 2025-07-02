@@ -16,11 +16,11 @@ export default function HomePage() {
         <OverView></OverView>
           <Availability></Availability>
        <Table></Table>
-         {/* <Property></Property>
-        <ExploreArea></ExploreArea>
-        <Slider></Slider>
-        <Policies></Policies>
-        <HotelSlider></HotelSlider> */}
+       <Property></Property>
+            <ExploreArea></ExploreArea>
+         <Slider></Slider>
+    <Policies></Policies>
+    <HotelSlider></HotelSlider>
     </div>
   )
 }

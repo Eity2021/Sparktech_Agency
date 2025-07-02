@@ -21,7 +21,7 @@ export default function HotelSlider() {
   })
 
   return (
-    <div className="w-full container py-8">
+    <div className="w-full md:container mx-auto py-8">
       <h2 className="text-xl font-semibold text-gray-800 mb-6">You may also like</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
