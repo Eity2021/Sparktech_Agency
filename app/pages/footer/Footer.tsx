@@ -86,7 +86,7 @@ export default function Footer() {
           </div>
         </div>
         {/* Copyright */}
-        <div className="py-3 md:px-0 px-6 md:flex block justify-between">
+        <div className="py-3  md:flex block justify-between">
           <div className="flex gap-2 text-xs">
             <Image src={location} alt="location" />
             <div className="mt-2 sm:mt-0 flex items-center font-normal text-[13px] text-white">

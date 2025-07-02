@@ -48,14 +48,14 @@ export default function OverView({
   const tabs = ["Over View", "Features", "Reviews"]
 
   return (
- <div className="w-full container pt-8">
+ <div className="w-full md:container mx-auto pt-8 pb-12">
 
         <div className="">
           {/* Navigation Tabs */}
 
 
-       <div className="sm:gap-6 mb-8 sm:mb-8 pb-4 flex">
-           <div className="flex flex-wrap gap-2 ">
+       <div className="sm:gap-6 mb-8 sm:mb-8 pb-4 md:flex block">
+           <div className="flex  flex-wrap gap-2  md:mb-0 mb-4">
             {tabs.map((tab) => (
                  <button
                 key={tab}
@@ -69,7 +69,8 @@ export default function OverView({
               </button>
             ))}
           </div>
-             <div className="bg-[#007DD0] flex gap-2 items-center px-[10px] rounded-[20px] cursor-pointer">
+
+             <div className="bg-[#007DD0] flex gap-2 items-center px-[10px] w-[110px] h-[32px] rounded-[20px] cursor-pointer">
              <div>
                   <Image src={elements} alt="" />
              </div>

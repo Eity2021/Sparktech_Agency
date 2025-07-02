@@ -1,8 +1,6 @@
 "use client";
-
 import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-
 import Image from "next/image";
 import image1 from "../../public/image/gallery/image1.png";
 import image2 from "../../public/image/gallery/image2.png";
@@ -56,9 +54,9 @@ export default function ImageGallerySection({
   }, [onReserve, name]);
 
   return (
-    <div className="w-full  container ">
+    <div className="w-full  md:container mx-auto pb-12">
       {/* Header Section */}
-      <div className="mt-[30px] md:px-0 px-3">
+      <div className="mt-[30px] md:px-0 px-2  ">
         <div className="flex flex-col md:flex-row sm:items-start sm:justify-between gap-4">
           <div className="flex-1">
             <h2 className="text-[20px] sm:text-[31px] font-medium text-[#252525] font-dm mb-2">
@@ -76,7 +74,7 @@ export default function ImageGallerySection({
               className="h-[70px] w-[70px] rounded-full bg-[#007DD01A] border-none "
               onClick={handleBookmark}
             >
-            <Image src={rectangle} alt="rectangle" />
+              <Image src={rectangle} alt="rectangle" />
             </Button>
             <Button
               variant="outline"
@@ -84,7 +82,7 @@ export default function ImageGallerySection({
               className="h-[70px] w-[70px] rounded-full bg-[#007DD01A] border-none "
               onClick={handleBookmark}
             >
-            <Image src={corner} alt="corner" />
+              <Image src={corner} alt="corner" />
             </Button>
 
             <Button
@@ -97,9 +95,8 @@ export default function ImageGallerySection({
         </div>
       </div>
 
-
       {/* Top Section: Large Left, Two Small Right */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
         {/* Left Large Image */}
         <div className="md:col-span-2">
           <Image

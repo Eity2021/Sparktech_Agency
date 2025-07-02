@@ -12,9 +12,9 @@ import Table from './Table';
 export default function HomePage() {
   return (
     <div className="px-2 md:px-0">
-      {/* <ImageGallerySection></ImageGallerySection>
+    <ImageGallerySection></ImageGallerySection>
         <OverView></OverView>
-        <Availability></Availability>
+         {/*  <Availability></Availability>
         <Table></Table>
         <Property></Property>
         <ExploreArea></ExploreArea>
