@@ -1,13 +1,17 @@
 import React from 'react'
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ChevronDown, Bell, ExternalLink, Menu } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { ChevronDown, Bell, ExternalLink, Menu } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
+import euro from "../../../public/image/euro-circle.png";
+import flag from "../../../public/image/flag.png";
 interface MobileResponsiveProps {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -42,7 +46,6 @@ export default function MobileResponsive({isOpen,setIsOpen} : MobileResponsivePr
 
   return (
     <div>
-        
      {/* Mobile Menu Button */}
              <Sheet open={isOpen} onOpenChange={setIsOpen}>
                <SheetTrigger asChild>
@@ -63,7 +66,6 @@ export default function MobileResponsive({isOpen,setIsOpen} : MobileResponsivePr
                       Sunan
                      </span>
                    </div>
-
                    {/* Mobile Navigation */}
                    <nav className="flex flex-col space-y-2">
                      {navigationItems.map((item) => (
@@ -82,7 +84,7 @@ export default function MobileResponsive({isOpen,setIsOpen} : MobileResponsivePr
                     ))}
                   </nav>
                   {/* Mobile Actions */}
-                   <div className="flex flex-col space-y-4 pt-4 border-t">
+                   <div className="flex flex-col space-y-4 pt-4 border-t md:px-0 px-3">
                    <a
                       href="#"
                       className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 text-base font-medium"
@@ -90,7 +92,6 @@ export default function MobileResponsive({isOpen,setIsOpen} : MobileResponsivePr
                       <span>List your property</span>
                       <ExternalLink className="w-4 h-4" />
                     </a>
-
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium text-gray-700">
                         Currency
@@ -102,9 +103,7 @@ export default function MobileResponsive({isOpen,setIsOpen} : MobileResponsivePr
                             size="sm"
                             className="flex items-center space-x-1"
                           >
-                            <span className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold">
-                              €
-                            </span>
+                           <Image src={euro} alt="euro" />
                             <ChevronDown className="w-4 h-4" />
                           </Button>
                         </DropdownMenuTrigger>
@@ -127,9 +126,9 @@ export default function MobileResponsive({isOpen,setIsOpen} : MobileResponsivePr
                             size="sm"
                             className="flex items-center space-x-1"
                           >
-                            <div className="w-5 h-5 rounded-full overflow-hidden">
-                              <div className="w-full h-full bg-gradient-to-r from-red-500 via-yellow-400 to-red-500"></div>
-                            </div>
+                               <div>
+                      <Image src={flag} alt="flag" />
+                    </div>
                             <ChevronDown className="w-4 h-4" />
                           </Button>
                         </DropdownMenuTrigger>
