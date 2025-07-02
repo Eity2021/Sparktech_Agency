@@ -14,9 +14,9 @@ export default function HomePage() {
     <div className="px-2 md:px-0">
     <ImageGallerySection></ImageGallerySection>
         <OverView></OverView>
-         {/*  <Availability></Availability>
-        <Table></Table>
-        <Property></Property>
+          <Availability></Availability>
+       <Table></Table>
+         {/* <Property></Property>
         <ExploreArea></ExploreArea>
         <Slider></Slider>
         <Policies></Policies>

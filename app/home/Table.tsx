@@ -10,6 +10,7 @@ import room from "../../public/image/table/room.png";
 import tv from "../../public/image/table/tv.png";
 import wifiSquare from "../../public/image/table/wifiSquare.png";
 import user from "../../public/image/table/User.png";
+import TableMobileResponsive from "./TableMobileResponsive";
 export default function Table() {
   const rooms = [
     {
@@ -134,27 +135,10 @@ export default function Table() {
 
     },
   ]
-      console.log( "amenities",room)
-  // const getAmenityIcon = (amenity: string) => {
-  //   switch (amenity) {
-  //     case "Room":
-  //       return <Home className="w-4 h-4" />
-  //     case "Air condition":
-  //       return <Snowflake className="w-4 h-4" />
-  //     case "Bathroom":
-  //       return <Bath className="w-4 h-4" />
-  //     case "TV":
-  //       return <Tv className="w-4 h-4" />
-  //     case "WiFi":
-  //       return <Wifi className="w-4 h-4" />
-  //     default:
-  //       return null
-  //   }
-  // }
 
   return (
     <div className=" mt-4">
-    <div className="w-full container overflow-hidden rounded-lg border-none">
+    <div className="w-full md:container mx-auto overflow-hidden rounded-lg border-none">
       {/* Desktop Table View */}
       <div className="hidden lg:block">
         <table className="w-full">
@@ -209,15 +193,15 @@ export default function Table() {
 
                 <td className="px-4 py-4 ">
          <div className="space-y-2 md:border-r-2 md:border-[#007DD05C]">
-                   <div className="text-xl font-semibold">{room.price}</div>
+                   <div className="text-[20px] font-bold font-dm text-[#00000]">{room.price}</div>
                        <div className="h-[100px] "></div>
           </div>
 
                 </td>
                 <td className="px-4 py-4">
                   <div className="space-y-1 md:border-r-2 md:border-[#007DD05C]">
-                    <div className="text-sm">Breakfast included</div>
-                    <div className="text-red-500 text-sm font-medium">Only 4 rooms left</div>
+                    <div className="text-[16px] font-normal font-dm text-[#00000]">Breakfast included</div>
+                    <div className="text-[16px] font-normal font-dm text-[#FE0D05]">Only 4 rooms left</div>
                         <div className="h-[90px] "></div>
                   </div>
                 </td>
@@ -269,87 +253,7 @@ export default function Table() {
       </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* Mobile Card View */}
-      <div className="lg:hidden">
-        <div className="bg-blue-600 text-white p-4">
-          <h2 className="font-medium text-lg">Room Selection</h2>
-        </div>
-        <div className="divide-y">
-          {rooms.map((room) => (
-            <div key={room.id} className="p-4 space-y-4">
-              <div className="space-y-2">
-                <h3 className="text-blue-600 font-medium text-lg">{room.type}</h3>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <Bed className="w-4 h-4" />
-                  {room.beds}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 text-sm text-gray-600">
-                    {room?.amenities?.map((amenity, idx) => (
-                        <div key={idx} className="flex gap-2 pb-1">
-                  
-                         <Image src={amenity.image} alt="bed"/>
-                         <p className="text-[12px] font-normal font-dm text-[#252525]"> {amenity.title}</p>
-   
-                        </div>
-                      ))}
-              </div>
-
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-600">Guests:</span>
-                <Users className="w-5 h-5 text-gray-600" />
-                <Users className="w-5 h-5 text-gray-600" />
-              </div>
-
-              <div className="space-y-2">
-                <div className="text-2xl font-semibold">{room.price}</div>
-                <div className="text-sm">Breakfast included</div>
-                <div className="text-red-500 text-sm font-medium">Only 4 rooms left</div>
-              </div>
-
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm">Rooms:</span>
-                  <Select defaultValue="0">
-                    <SelectTrigger className="w-16">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="0">0</SelectItem>
-                      <SelectItem value="1">1</SelectItem>
-                      <SelectItem value="2">2</SelectItem>
-                      <SelectItem value="3">3</SelectItem>
-                      <SelectItem value="4">4</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <Button className="bg-[#007DD0] hover:bg-[#007DD0] text-white px-6">Reserve</Button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-
-             
+<TableMobileResponsive></TableMobileResponsive>
 
     </div>
      </div>
