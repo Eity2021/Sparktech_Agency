@@ -1,8 +1,11 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Info, Users, Bath, Square } from "lucide-react"
+import {CardContent } from "@/components/ui/card"
+import { Info} from "lucide-react"
 import hotel from "../../public/image/gallery/hotel.png";
+import room from "../../public/image/table/room.png";
+import bath from "../../public/image/table/bath.png";
+import arrow from "../../public/image/table/arrow.png";
 export default function HotelSlider() {
   const accommodations = Array(8).fill({
     id: 1,
@@ -13,7 +16,7 @@ export default function HotelSlider() {
     currency: "per Night",
     bedrooms: 2,
     bathrooms: 2,
-    area: "1200 sq ft",
+    area: "1200 ",
     image: hotel,
   })
 
@@ -23,55 +26,59 @@ export default function HotelSlider() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {accommodations.map((item, index) => (
-          <Card
+          <div
             key={index}
-            className="overflow-hidden border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            className="overflow-hidden  border-none rounded-lg  transition-shadow"
           >
             <div className="relative">
               <Image
                 src={item.image}
                 alt={item.name}
-                width={300}
-                height={200}
-                className="w-full h-48 object-cover"
+
+                className="w-full object-cover rounded-[30px]"
               />
             </div>
 
             <CardContent className="p-4">
-              <h3 className="font-semibold text-gray-900 mb-2 line-clamp-1">{item.name}</h3>
+              <h3 className="text-[20px] font-600 font-dm text-[#252525] mb-2 line-clamp-1">{item.name}</h3>
 
-              <p className="text-sm text-gray-600 mb-4 line-clamp-3 leading-relaxed">{item.description}</p>
+              <p className="text-[12px] font-300 font-dm text-[#626262] mb-4 line-clamp-3 leading-relaxed">{item.description}</p>
 
               <div className="mb-4">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-bold text-gray-900">{item.price}</span>
-                  <span className="text-sm text-gray-600">{item.currency}</span>
+                  <span className=" text-[18px] font-normal font-dm text-[#000]">{item.price}</span>
+                  <span className=" text-[10px] font-normal font-dm text-[#000]">{item.currency}</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
                 <div className="flex items-center gap-1">
-                  <Users className="w-4 h-4" />
-                  <span>{item.bedrooms} Bedrooms</span>
+                  {/* <Users className="w-4 h-4" /> */}
+                    <Image src={room} alt="room"/>
+                  <span className=" text-[14px] font-normal font-dm text-[#252525]">{item.bedrooms} <span className="text-[10px] font-normal font-dm text-[#252525]">Bedrooms</span></span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Bath className="w-4 h-4" />
-                  <span>{item.bathrooms} Bathrooms</span>
+                    <Image src={bath} alt="bath"/>
+                  <span className=" text-[14px] font-normal font-dm text-[#252525]">{item.bathrooms} <span className="text-[10px] font-normal font-dm text-[#252525]">Bathrooms</span></span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Square className="w-4 h-4" />
-                  <span>{item.area}</span>
+                    <Image src={arrow} alt="arrow"/>
+                  <span className=" text-[14px] font-normal font-dm text-[#252525]">{item.area} <span className="text-[10px] font-normal font-dm text-[#252525]">sq ft</span></span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <Button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white rounded-full">Book Now</Button>
-                <Button variant="outline" size="icon" className="rounded-full border-gray-300 bg-transparent">
-                  <Info className="w-4 h-4" />
+              <div className="flex justify-between gap-2">
+
+                <div className="h-[46px] w-[245px] rounded-[35px] bg-[#007DD0] hover:bg-[#007DD0] cursor-pointer  flex justify-center items-center">
+                  <p className="  text-white  text-[20px] font-semibold font-dm  flex justify-center items-center">Book Now</p>
+                </div>
+
+                <Button variant="outline" size="icon" className="rounded-full w-[46px] h-[46px] border-none bg-[#007DD01A] ">
+                  <Info className="w-4 h-4" color="#007DD0"/>
                 </Button>
               </div>
             </CardContent>
-          </Card>
+          </div>
         ))}
       </div>
     </div>

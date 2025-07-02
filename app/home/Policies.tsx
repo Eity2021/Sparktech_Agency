@@ -101,15 +101,15 @@ export default function Policies() {
           >
             {/* Policy Title - Left Column */}
             <div className="md:col-span-1 flex items-center py-[14px]">
-              <h2 className="text-base font-medium text-gray-700 leading-relaxed ">{policy.title}</h2>
+              <h2 className="text-[24px] font-normal font-dm text-[#252525] leading-relaxed ">{policy.title}</h2>
             </div>
 
             {/* Policy Content - Right Column */}
             <div className="md:col-span-2 space-y-3 py-[14px]" >
               {policy.content.map((item, itemIndex) => (
                 <div key={itemIndex} className="space-y-1">
-                  {item.subtitle && <h3 className="text-sm font-medium text-gray-900">{item.subtitle}</h3>}
-                  {item.description && <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>}
+                  {item.subtitle && <h3 className="text-[16px] font-semibold font-dm text-[#252525]">{item.subtitle}</h3>}
+                  {item.description && <p className="text-[16px] font-normal font-dm text-[#626262] leading-relaxed">{item.description}</p>}
                 </div>
               ))}
             </div>

@@ -2,9 +2,15 @@
 import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Wifi, UtensilsCrossed, Waves, Snowflake, Dumbbell, Star, MapPin } from "lucide-react"
-
+import Image from "next/image";
+import elements from "../../public/image/elements.png";
+import house from "../../public/image/house-2.png";
+import home from "../../public/image/home.png";
+import restaurant from "../../public/image/restaurant.png";
+import wifi from "../../public/image/wifi-square.png";
+import swimming from "../../public/image/swimming.png";
+import airConditioner from "../../public/image/air-conditioner.png";
+import dumbbell from "../../public/image/dumbbell.png";
 interface PropertyDetailsProps {
   propertyType?: string
   rating?: string
@@ -25,11 +31,11 @@ export default function OverView({
   rating = "Resorts",
   area = "2000 sqft",
   features = [
-    { name: "Wifi", icon: <Wifi className="h-4 w-4" /> },
-    { name: "Dining", icon: <UtensilsCrossed className="h-4 w-4" /> },
-    { name: "Swimming Pool", icon: <Waves className="h-4 w-4" /> },
-    { name: "Air Conditioning", icon: <Snowflake className="h-4 w-4" /> },
-    { name: "Gym", icon: <Dumbbell className="h-4 w-4" /> },
+    { name: "Wifi", icon: <Image src={wifi} alt="wifi"/> },
+    { name: "Dining", icon: <Image src={restaurant} alt="restaurant"/> },
+    { name: "Swimming Pool", icon: <Image src={swimming} alt="swimming"/>},
+    { name: "Air Conditioning",icon: <Image src={airConditioner} alt="airConditioner"/> },
+    { name: "Gym", icon:<Image src={dumbbell} alt="dumbbell"/> },
   ],
   bookingDetails = {
     duration: "1 week, 2 adults, 1 child",
@@ -37,18 +43,21 @@ export default function OverView({
     price: "USD $6,112",
   },
 }: PropertyDetailsProps) {
-  const [activeTab, setActiveTab] = useState("Guarantee")
+  const [activeTab, setActiveTab] = useState("Over View")
 
-  const tabs = ["Over View", "Features", "Reviews", "Guarantee"]
+  const tabs = ["Over View", "Features", "Reviews"]
 
   return (
- <div className="w-full container pt-4">
+ <div className="w-full container pt-8">
 
         <div className="">
           {/* Navigation Tabs */}
-          <div className="flex flex-wrap gap-2 sm:gap-6 mb-6 sm:mb-8 pb-4">
+
+
+       <div className="sm:gap-6 mb-8 sm:mb-8 pb-4 flex">
+           <div className="flex flex-wrap gap-2 ">
             {tabs.map((tab) => (
-              <button
+                 <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`px-3 py-2 text-[16px] font-dm  transition-colors ${
@@ -56,9 +65,18 @@ export default function OverView({
                 }`}
               >
                 {tab}
+               
               </button>
             ))}
           </div>
+             <div className="bg-[#007DD0] flex gap-2 items-center px-[10px] rounded-[20px] cursor-pointer">
+             <div>
+                  <Image src={elements} alt="" />
+             </div>
+                 <p className="text-[14px] font-normal font-dm text-[#fff]">Message</p>
+                </div>
+
+       </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Left Content */}
@@ -68,22 +86,27 @@ export default function OverView({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
           
-                    <p className="text-gray-900 font-medium font-urbanist">{propertyType}</p>
+                    <p className="text-[#252525] text-[18px] font-semibold font-urbanist">{propertyType}</p>
                   </div>
                   <div>
               
-                    <p className="text-gray-900 font-medium font-urbanist">{propertyType}</p>
+                    <p className="text-[#252525] text-[18px] font-semibold font-urbanist">{propertyType}</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex items-center gap-2">
-                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
-                    <span className="text-gray-900 font-medium">{rating}</span>
+                    <div className="rounded-[7px] w-[36px] h-[36px] border border-[#EDEDF2] flex justify-center items-center">
+                      <Image src={house} alt="house" />
+                    </div>
+                    <span className="text-[#010101] font-normal text-[16px]">{rating}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4 text-gray-500" />
-                    <span className="text-gray-900 font-medium">{area}</span>
+                    <div className="rounded-[7px] w-[36px] h-[36px] border border-[#EDEDF2] flex justify-center items-center">
+
+                  <Image src={home} alt="home" />
+                    </div>
+                    <span className="text-[#010101] font-normal text-[16px]">{area}</span>
                   </div>
                 </div>
               </div>
@@ -96,10 +119,10 @@ export default function OverView({
                   {features.map((feature, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-3 p-3 rounded-lg border border-gray-100 hover:border-gray-200 transition-colors"
+                      className="flex items-center gap-3 p-1 "
                     >
-                      <div className="text-blue-600">{feature.icon}</div>
-                      <span className="text-gray-900 font-medium text-sm">{feature.name}</span>
+                      <div className="rounded-[7px] w-[36px] h-[36px] border border-[#EDEDF2] flex justify-center items-center">{feature.icon}</div>
+                      <span className="text-[#010101] font-normal text-[16px]">{feature.name}</span>
                     </div>
                   ))}
                 </div>
@@ -108,21 +131,21 @@ export default function OverView({
 
             {/* Right Sidebar - Booking Summary */}
             <div className="lg:col-span-1">
-              <Card className="bg-gray-50 border-gray-200 p-4 sm:p-6 sticky top-4">
+              <div className="bg-white border border-[#A3D0EE]  md:w-[268px] h-[240px] w-full flex items-center justify-center rounded-[12px] shadow-sm" >
                 <div className="space-y-4">
-                  <div className="text-center space-y-2">
-                    <p className="text-sm text-gray-600">{bookingDetails.guests}</p>
-                    <p className="text-2xl sm:text-3xl font-bold text-gray-900">{bookingDetails.price}</p>
+                  <div className="space-y-2">
+                    <p className="text-[#000] font-normal text-[16px]">{bookingDetails.guests}</p>
+                    <p className="text-[18px] sm:text-[20px] font-bold text-[#000] ">{bookingDetails.price}</p>
                   </div>
 
                   <Button
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg"
+                    className="w-full bg-[#007DD0] hover:bg-[#007DD0] text-white font-medium py-3 rounded-[24.2px]"
                     size="lg"
                   >
                     Reserve
                   </Button>
                 </div>
-              </Card>
+              </div>
             </div>
           </div>
         </div>

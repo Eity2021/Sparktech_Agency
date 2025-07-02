@@ -16,7 +16,7 @@ export default function Availability() {
     const [children, setChildren] = useState("0")
     const [rooms, setRooms] = useState("1")
     return (
-        <div className="w-full container">
+        <div className="w-full container pt-12">
             <h2 className="text-[20px]  font-bold text-[#000000] mb-4 sm:mb-6">Availability</h2>
             <div className="grid lg:grid-cols-3 grid-cols-1 w-full">
 
@@ -157,7 +157,7 @@ export default function Availability() {
                             <div className="space-y-2 sm:col-span-2 lg:col-span-1 mt-2 ml-8">
                                 <Label className="text-sm font-medium text-transparent">Search</Label>
                                 <Button
-                                    className="md:w-[116px] h-[32px]  w-[200px]  button_color hover:button_color text-white font-normal fontSize-[13px] rounded-[24px] p-[7px]"
+                                    className="md:w-[116px] h-[32px]  w-[200px]  button_color hover:button_color text-white font-normal fontSize-[13px] rounded-[24px] p-[18px]"
                                     onClick={() => {
                                         console.log("Search clicked", { checkIn, checkOut, adults, children, rooms })
                                     }}

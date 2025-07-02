@@ -11,8 +11,8 @@ import Table from './Table';
 
 export default function HomePage() {
   return (
-    <div>
-      <ImageGallerySection></ImageGallerySection>
+    <div className="px-2 md:px-0">
+      {/* <ImageGallerySection></ImageGallerySection>
         <OverView></OverView>
         <Availability></Availability>
         <Table></Table>
@@ -20,7 +20,7 @@ export default function HomePage() {
         <ExploreArea></ExploreArea>
         <Slider></Slider>
         <Policies></Policies>
-        <HotelSlider></HotelSlider>
+        <HotelSlider></HotelSlider> */}
     </div>
   )
 }

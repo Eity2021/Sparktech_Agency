@@ -4,9 +4,49 @@ import { useState, useEffect } from "react"
 import { MoveLeft, MoveRight, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CardContent } from "@/components/ui/card"
-
+import star from "../../public/image/star.png";
+import Image from "next/image"
 const testimonials = [
-  // ...your testimonials (same as before)
+  {
+    id: 1,
+    title: "Breathtaking Views and Luxury Comfort",
+    content:
+      "We were absolutely thrilled with our accommodation! The five-star-rated room came absolutely stunning. The suite was spacious, impeccably clean, and the modern decor made our feel right at home. The bathroom was luxurious, and the balcony provided spectacular views. Perfect for both relaxation and romance.",
+    rating: 5,
+    author: "Sofia B.",
+    location: "France",
+    date: "23.10.2024",
+  },
+  {
+    id: 2,
+    title: "Exceptional Stay with Excellent Amenities",
+    content:
+      "Our experience exceeded all expectations from start to finish. The room was well-equipped with everything you could need. The marble bathroom with its bathtub was divine. The location is perfect for exploring the city, and the staff was incredibly helpful throughout our stay.",
+    rating: 5,
+    author: "Youssef R.",
+    location: "Morocco",
+    date: "15.11.2024",
+  },
+  {
+    id: 3,
+    title: "Outstanding Service and Beautiful Rooms",
+    content:
+      "From the moment we arrived, we were impressed by the attention to detail. The room was beautifully decorated with high-quality furnishings. The staff went above and beyond to ensure our comfort. The amenities were top-notch and the location couldn't be better.",
+    rating: 5,
+    author: "Emma L.",
+    location: "United Kingdom",
+    date: "02.12.2024",
+  },
+  {
+    id: 4,
+    title: "Perfect Getaway with Amazing Views",
+    content:
+      "This place exceeded all our expectations! The panoramic views from our room were absolutely stunning. Every detail was thoughtfully considered, from the comfortable bedding to the modern amenities. We'll definitely be returning for our next vacation.",
+    rating: 5,
+    author: "Marco T.",
+    location: "Italy",
+    date: "18.11.2024",
+  },
 ]
 
 export function Slider() {
@@ -52,10 +92,10 @@ export function Slider() {
     <div className="w-full container py-8 relative">
       {/* Header */}
       <div className="flex items-center justify-between mb-28">
-        <h2 className="text-2xl font-semibold text-gray-900">What Our Guests Say</h2>
-        <button className="text-[#007DD0] hover:text-[#007DD0] font-medium flex items-center gap-1 absolute right-24 top-[115px]">
-          See All
-          <MoveRight className="w-4 h-4" />
+        <h2 className="text-[20.8px] font-bold text-[#252525]">What Our Guests Say</h2>
+        <button className="text-[#007DD0] hover:text-[#007DD0] text-[20px] font-medium flex items-center gap-1 absolute right-24 top-[115px] border-b-2 border-[#007DD0]">
+          See All..
+          <MoveRight className="w-5 h-5" color="#007DD0" />
         </button>
       </div>
 
@@ -86,26 +126,26 @@ export function Slider() {
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${translateX}%)` }}
           >
-            {testimonials.map((testimonial) => (
+            {testimonials?.map((testimonial) => (
               <div key={testimonial.id} className="w-full md:w-1/2 flex-shrink-0 pr-4">
-                <div className="bg-white border h-[202px]">
+                <div className="bg-white border border-[#DEDEDE] rounded-[12px] h-[240px] p-[16px]">
                   <CardContent className="py-2 px-4">
-                    <div className="space-y-4">
-                      <h3 className="text-base font-semibold text-gray-900">"{testimonial.title}"</h3>
-                      <p className="text-sm text-gray-600 leading-relaxed line-clamp-4">
+                    <div className="space-y-2">
+                      <h3 className="text-[20px] font-semibold text-[#252525] font-dm">"{testimonial.title}"</h3>
+                      <p className="text-[12px] text-[#626262] font-300 leading-relaxed line-clamp-4">
                         {testimonial.content}
                       </p>
                       <div className="flex items-center gap-1">
                         {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                          <Image src={star} alt="star" />
                         ))}
                       </div>
                       <div className="flex items-center justify-between">
                         <div className="text-sm">
-                          <span className="font-medium text-gray-900">— {testimonial.author}</span>
-                          <span className="text-gray-500">, {testimonial.location}</span>
+                          <span className="font-normal text-[20px] text-[#252525] font-roboto">— {testimonial.author}</span>
+                          <span className="font-normal text-[20px] text-[#252525] font-roboto">, {testimonial.location}</span>
                         </div>
-                        <div className="text-sm text-gray-500">{testimonial.date}</div>
+                        <div className="font-normal text-[12px] text-[#000000] font-roboto">{testimonial.date}</div>
                       </div>
                     </div>
                   </CardContent>

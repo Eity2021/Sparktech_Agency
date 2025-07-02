@@ -35,7 +35,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-[#E9F6FF] ">
-      <div className="lg:container mx-auto lg:px-0 px-4">
+      <div className="md:container mx-auto lg:px-0 px-4">
         <div className="flex items-center justify-between h-[76px]">
           {/* Logo */}
           <div>

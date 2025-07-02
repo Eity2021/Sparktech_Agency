@@ -1,10 +1,13 @@
 "use client"
 
-import { MapPin, Train, ShoppingBag, Utensils, Waves } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Train, ShoppingBag, Utensils, Waves } from "lucide-react"
+import { CardContent } from "@/components/ui/card"
 import location from "../../public/image/location.png";
 import Image from 'next/image';
+import beach from "../../public/image/area/beach.png";
+import bus from "../../public/image/area/bus.png";
+import cafe from "../../public/image/area/cafe.png";
+import shop from "../../public/image/area/shop.png";
 const areaData = [
   {
     id: 1,
@@ -93,36 +96,27 @@ export function ExploreArea() {
     <div className="w-full container px-4 py-8">
       {/* Header */}
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-gray-900">Explore the Area</h2>
+        <h2 className="text-[20px] font-bold text-[#252525">Explore the Area</h2>
       </div>
-
-
       <div className="relative">
-
-    
-
-       
-
         {/* Content */}
         <div className="overflow-hidden">
           <div
-            className="flex transition-transform duration-500 ease-in-out"
-           
-          >
+            className="flex transition-transform duration-500 ease-in-out">
             {areaData.map((area) => (
               <div key={area.id} className="w-full flex-shrink-0 ">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
                   {/* Restaurants & Cafes */}
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 text-gray-600">
-                      <Utensils className="w-4 h-4" />
-                      <h3 className="font-medium">Restaurants & Cafes</h3>
+                      <Image src={cafe} alt="cafe" />
+                      <h3 className="font-normal text-[16px] text-[#252525] font-dm">Restaurants & Cafes</h3>
                     </div>
                     <div className="space-y-2">
                       {area.restaurants.map((restaurant, index) => (
                         <div key={index} className="flex justify-between items-center text-sm">
-                          <span className="text-gray-700">{restaurant.name}</span>
-                          <span className="text-gray-500">{restaurant.distance}</span>
+                          <span className="font-normal text-[12px] text-[#757575] font-dm">{restaurant.name}</span>
+                          <span className="font-normal text-[12px] text-[#757575] font-dm">{restaurant.distance}</span>
                         </div>
                       ))}
                     </div>
@@ -130,14 +124,15 @@ export function ExploreArea() {
                     {/* Beaches */}
                     <div className="pt-4">
                       <div className="flex items-center gap-2 text-gray-600 mb-3">
-                        <Waves className="w-4 h-4" />
-                        <h3 className="font-medium">Beaches</h3>
+
+                          <Image src={beach} alt="beach" />
+                        <h3 className="font-normal text-[16px] text-[#252525] font-dm">Beaches</h3>
                       </div>
                       <div className="space-y-2">
                         {area.beaches.map((beach, index) => (
                           <div key={index} className="flex justify-between items-center text-sm">
-                            <span className="text-gray-700">{beach.name}</span>
-                            <span className="text-gray-500">{beach.distance}</span>
+                            <span className="font-normal text-[12px] text-[#757575] font-dm">{beach.name}</span>
+                            <span className="font-normal text-[12px] text-[#757575] font-dm">{beach.distance}</span>
                           </div>
                         ))}
                       </div>
@@ -147,14 +142,14 @@ export function ExploreArea() {
                   {/* Shops & Markets */}
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 text-gray-600">
-                      <ShoppingBag className="w-4 h-4" />
-                      <h3 className="font-medium">Shops & Markets</h3>
+                      <Image src={shop} alt="shop" />
+                      <h3 className="font-normal text-[16px] text-[#252525] font-dm">Shops & Markets</h3>
                     </div>
                     <div className="space-y-2">
                       {area.shops.map((shop, index) => (
                         <div key={index} className="flex justify-between items-center text-sm">
-                          <span className="text-gray-700">{shop.name}</span>
-                          <span className="text-gray-500">{shop.distance}</span>
+                          <span className="font-normal text-[12px] text-[#757575] font-dm">{shop.name}</span>
+                          <span className="font-normal text-[12px] text-[#757575] font-dm">{shop.distance}</span>
                         </div>
                       ))}
                     </div>
@@ -162,14 +157,14 @@ export function ExploreArea() {
                     {/* Public Transport */}
                     <div className="pt-4">
                       <div className="flex items-center gap-2 text-gray-600 mb-3">
-                        <Train className="w-4 h-4" />
-                        <h3 className="font-medium">Public Transport</h3>
+                         <Image src={bus} alt="bus" />
+                        <h3 className="font-normal text-[16px] text-[#252525]">Public Transport</h3>
                       </div>
                       <div className="space-y-2">
                         {area.transport.map((transport, index) => (
                           <div key={index} className="flex justify-between items-center text-sm">
-                            <span className="text-gray-700">{transport.name}</span>
-                            <span className="text-gray-500">{transport.distance}</span>
+                            <span className="font-normal text-[12px] text-[#757575] font-dm">{transport.name}</span>
+                            <span className="font-normal text-[12px] text-[#757575] font-dm">{transport.distance}</span>
                           </div>
                         ))}
                       </div>
@@ -183,7 +178,7 @@ export function ExploreArea() {
                           <Image
                             src={location}
                             alt="location"
-                            className="w-full h-full "
+                            className="w-[100%] h-[100%] "
                           />
                         </div>
                       <CardContent className="text-center py-[12px] border rounded-b-lg">
